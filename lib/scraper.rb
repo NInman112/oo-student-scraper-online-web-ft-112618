@@ -28,7 +28,7 @@ class Scraper
         profile_hash[:github] = profile_node.css(".vitals-container").css(".social-icon-container a")[2].nil? ? nil : profile_node.css(".vitals-container").css(".social-icon-container a")[2].attr("href")
         profile_hash[:blog] = profile_node.css(".vitals-container").css(".social-icon-container a")[3].nil? ? nil : profile_node.css(".vitals-container").css(".social-icon-container a")[3].attr("href")
 
-        profile_hash[:profile_quote] = profile_node.css(".vitals-container").css(".vitals-text-container").children[5].text.strip#.delete('\"')
+        profile_hash[:profile_quote] = profile_node.css(".vitals-container").css(".vitals-text-container").children[5].text.strip
         profile_hash[:bio] = profile_node.css(".details-container").css(".bio-block.details-block").css(".bio-content.content-holder").css(".description-holder").text.strip
     end
     profile_hash
