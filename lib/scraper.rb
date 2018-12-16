@@ -20,20 +20,20 @@ class Scraper
 
   def self.scrape_profile_page(profile_url)
     profile_hash = {}
-    i = 0
     doc = Nokogiri::HTML(open(profile_url))
     doc.css(".social-icon-container a").each do |profile_node|
-        binding.pry
-
-        if profile_node.css(".social-icon-container a").css(".social-icon").attr("src").value.include?("twitter")
-          profile_hash[:twitter] = profile_node.css(".social-icon-container a").attr("href").value
-        elsif profile_node.css(".social-icon-container a").css(".social-icon").attr("src").value.include?("linkedin")
-
-          profile_hash[:linkedin] = profile_node.css(".social-icon-container a").attr("href").value
-        elsif profile_node.css(".social-icon-container a").css(".social-icon").attr("src").value.include?("github")
-          profile_hash[:github] = profile_node.css(".social-icon-container a").attr("href").value
-        elsif profile_node.css(".social-icon-container a").css(".social-icon").attr("src").value.include?("rss")
-          profile_hash[:blog] = profile_node.css(".social-icon-container a").attr("href").value
+        #binding.pry
+        if profile_node.css(".social-icon").attr("src").value.include?("twitter")
+          profile_hash[:twitter] = profile_node.attr("href").value
+          
+        elsif profile_node.css(".social-icon").attr("src").value.include?("linkedin")
+          profile_hash[:linkedin] = profile_node.attr("href").value
+          
+        elsif profile_node.css(".social-icon").attr("src").value.include?("github")
+          profile_hash[:github] = profile_node.attr("href").value
+          
+        elsif profile_node.css(".social-icon").attr("src").value.include?("rss")
+          profile_hash[:blog] = profile_node.attr("href").value
         else
           nil
         end
