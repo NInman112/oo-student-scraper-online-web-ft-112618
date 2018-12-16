@@ -22,10 +22,14 @@ class Scraper
     profile_hash = {}
     i = 0
     doc = Nokogiri::HTML(open(profile_url))
-    doc.css(".main-wrapper.profile").each do |profile_node|
-      binding.pry
+    doc.css(".vitals-container").each do |profile_node|
+        binding.pry
+
+        #if profile_node.css(".social-icon-container a").css(".social-icon").attr("src").value.include?("twitter")
+        #
+
+
         #profile_hash[:twitter] = if profile_node.css(".vitals-container").css(".social-icon-container a")[0].nil? ? nil || icon.include? "twitter" : profile_node.css(".vitals-container").css(".social-icon-container a")[0].attr("href")
-        
         profile_hash[:twitter] = profile_node.css(".vitals-container").css(".social-icon-container a")[0].nil? ? nil : profile_node.css(".vitals-container").css(".social-icon-container a")[0].attr("href")
         profile_hash[:linkedin] = profile_node.css(".vitals-container").css(".social-icon-container a")[1].nil? ? nil : profile_node.css(".vitals-container").css(".social-icon-container a")[1].attr("href")
         profile_hash[:github] = profile_node.css(".vitals-container").css(".social-icon-container a")[2].nil? ? nil : profile_node.css(".vitals-container").css(".social-icon-container a")[2].attr("href")
