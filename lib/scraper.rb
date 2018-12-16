@@ -4,7 +4,6 @@ require 'pry'
 class Scraper
 
   def self.scrape_index_page(index_url)
-    #student = {}
     student_array = []
     doc = Nokogiri::HTML(open(index_url))
     doc.css(".student-card a").each do |student_node|
@@ -12,8 +11,6 @@ class Scraper
         :name => student_node.css(".student-name").text,
         :location => student_node.css(".student-location").text,
         :profile_url => student_node.attr("href")}
-      #student_array << student
-      #binding.pry
     end
     student_array
   end
