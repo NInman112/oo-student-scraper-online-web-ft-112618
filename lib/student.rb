@@ -6,7 +6,7 @@ class Student
 
   def initialize(student_hash)
     student_hash.each do |key,value|
-      binding.pry
+
       self.send(key.to_s+"=",value)
     end
     #@name = student_hash[:name]
