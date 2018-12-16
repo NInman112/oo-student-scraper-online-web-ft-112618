@@ -28,6 +28,7 @@ class Scraper
         if profile_node.css(".social-icon-container a").css(".social-icon").attr("src").value.include?("twitter")
           profile_hash[:twitter] = profile_node.css(".social-icon-container a").attr("href").value
         elsif profile_node.css(".social-icon-container a").css(".social-icon").attr("src").value.include?("linkedin")
+          binding.pry
           profile_hash[:linkedin] = profile_node.css(".social-icon-container a").attr("href").value
         elsif profile_node.css(".social-icon-container a").css(".social-icon").attr("src").value.include?("github")
           profile_hash[:github] = profile_node.css(".social-icon-container a").attr("href").value
