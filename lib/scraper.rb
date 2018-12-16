@@ -34,7 +34,7 @@ class Scraper
         else
           nil
         end
-      end 
+      end
     doc.css(".main-wrapper.profile").each do |profile_node|
         profile_hash[:profile_quote] = profile_node.css(".vitals-container").css(".vitals-text-container").children[5].text.strip
         profile_hash[:bio] = profile_node.css(".details-container").css(".bio-block.details-block").css(".bio-content.content-holder").css(".description-holder").text.strip
