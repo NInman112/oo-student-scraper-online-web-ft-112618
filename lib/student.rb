@@ -5,6 +5,7 @@ class Student
   @@all = []
 
   def initialize(student_hash)
+    student_hash.each {|key,value|      binding.pry     }
     @name = student_hash[:name]
     @location = student_hash[:location]
     @@all << self
