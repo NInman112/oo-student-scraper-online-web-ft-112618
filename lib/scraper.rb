@@ -38,6 +38,6 @@ class Scraper
         profile_hash[:profile_quote] = profile_node.css(".vitals-container").css(".vitals-text-container").children[5].text.strip
         profile_hash[:bio] = profile_node.css(".details-container").css(".bio-block.details-block").css(".bio-content.content-holder").css(".description-holder").text.strip
     end
-    attributes_hash
+    profile_hash
   end
 end
