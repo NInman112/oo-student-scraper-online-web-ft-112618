@@ -26,11 +26,11 @@ class Scraper
           binding.pry
           profile_hash[:twitter] = profile_node.attr("href")
         elsif profile_node.css(".social-icon").attr("src").value.include?("linkedin")
-          profile_hash[:linkedin] = profile_node.attr("href").value
+          profile_hash[:linkedin] = profile_node.attr("href")
         elsif profile_node.css(".social-icon").attr("src").value.include?("github")
-          profile_hash[:github] = profile_node.attr("href").value
+          profile_hash[:github] = profile_node.attr("href")
         elsif profile_node.css(".social-icon").attr("src").value.include?("rss")
-          profile_hash[:blog] = profile_node.attr("href").value
+          profile_hash[:blog] = profile_node.attr("href")
         else
           nil
         end
